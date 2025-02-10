@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{message}}</p>
+      <p>You clicked {{total}} times.</p>
+
+      <p>
+        <button @click="increment">Click me</button>
+      </p>
+
+      <div v-if="total > 10">Why are you clicking so much</div>
+      <div v-else>Keep clicking please!</div>
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

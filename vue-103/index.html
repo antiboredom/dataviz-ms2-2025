@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      rect {
+        fill: pink;
+        stroke: blue;
+        stroke-width: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <svg width="500" height="500">
+        <rect x="20" y="20" :width="rectW" :height="rectH"></rect>
+      </svg>
+
+      <input type="range" min="0" max="400" v-model="rectW" />
+      <input type="range" min="0" max="400" v-model="rectH" />
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

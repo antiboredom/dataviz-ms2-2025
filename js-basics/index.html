@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello class <span id="totalClicksAgain"></span>!</h1>
+
+    <p>You have clicked <span id="totalClicks">0</span> times.</p>
+
+    <p id="tooMuch" style="display: none">
+      You clicked too many times please stop clicking.
+    </p>
+
+    <button id="clicker">Click me!</button>
+    <script>
+      let total = 0;
+
+      function onClick() {
+        total = total + 1;
+        document.querySelector("#totalClicks").textContent = total;
+        document.querySelector("#totalClicksAgain").textContent = total;
+        if (total >= 10) {
+          document.querySelector("#tooMuch").style.display = "block";
+        }
+      }
+
+      let butt = document.querySelector("#clicker");
+
+      butt.addEventListener("click", onClick);
+
+      let person = {
+        age: 34,
+        name: "Karl Marx",
+        favoriteBooks: ["hello moon", "the republic"],
+        sayHi() {
+          console.log("Hello this is", this.name);
+        },
+      };
+
+      console.log(person);
+
+      console.log(person.name);
+    </script>
+  </body>
+</html>

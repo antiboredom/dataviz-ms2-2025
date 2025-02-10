@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .good {
+        color: green;
+      }
+      .bad {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="currentGuess" :disabled="hasWon" />
+      <button @click="makeGuess" :disabled="hasWon">Guess</button>
+
+      <button @click="reset">Reset Game</button>
+
+      <p class="good" v-if="hasWon">You won!!</p>
+
+      <p class="bad" v-if="badGuessMessage">{{badGuessMessage}}</p>
+
+      <svg :width="svgWidth" :height="svgHeight">
+        <g v-for="(row, rowIndex) in grid">
+          <g
+            v-for="(letter, colIndex) in row"
+            :transform="`translate(${xScale(colIndex)}, ${yScale(rowIndex)})`"
+          >
+            <rect
+              :fill="letter.color"
+              :width="tileWidth"
+              :height="tileWidth"
+            ></rect>
+            <text :x="this.tileWidth/2" :y="this.tileWidth/2">
+              {{letter.letter}}
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
