@@ -11,6 +11,8 @@ with sync_playwright() as p:
     )
 
     while True:
+        page.wait_for_timeout(10000)
+
         elements = page.query_selector_all(".s-result-item")
         for el in elements:
             title_el = el.query_selector("h2")
@@ -19,6 +21,7 @@ with sync_playwright() as p:
             if price_el and title_el:
                 price = price_el.text_content()
                 title = title_el.text_content()
+                print(price, title)
                 output.append({"title": title, "price": price})
 
         with open("amazon_items.json", "w") as f:
